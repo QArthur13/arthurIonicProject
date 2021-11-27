@@ -1,0 +1,7 @@
+{
+  "name": "arthurIonicProject",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}

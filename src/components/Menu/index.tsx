@@ -1,5 +1,6 @@
 import React from "react";
 import {
+  IonButton,
   IonContent,
   IonIcon,
   IonItem,
@@ -12,53 +13,53 @@ import {
 } from '@ionic/react';
 
 import { useLocation } from 'react-router-dom';
-import { archiveOutline, archiveSharp, bookmarkOutline, heartOutline, heartSharp, mailOutline, mailSharp, paperPlaneOutline, paperPlaneSharp, trashOutline, trashSharp, warningOutline, warningSharp } from 'ionicons/icons';
+import {
+  addCircle, addCircleOutline,
+  archiveOutline,
+  archiveSharp,
+  bookmarkOutline, gameController,
+  heartOutline,
+  heartSharp, home,
+  list, logOut,
+  mailOutline,
+  mailSharp,
+  paperPlaneOutline,
+  paperPlaneSharp,
+  trashOutline,
+  trashSharp,
+  warningOutline,
+  warningSharp
+} from 'ionicons/icons';
 import './index.css';
-
-interface AppPage {
-  url: string;
-  iosIcon: string;
-  mdIcon: string;
-  title: string;
-}
+import {AppPage} from "../../interface";
 
 const appPages: AppPage[] = [
-  {
-    title: 'Inbox',
-    url: '/page/Inbox',
-    iosIcon: mailOutline,
-    mdIcon: mailSharp
-  },
-  {
-    title: 'Outbox',
-    url: '/page/Outbox',
-    iosIcon: paperPlaneOutline,
-    mdIcon: paperPlaneSharp
-  },
-  {
-    title: 'Favorites',
-    url: '/page/Favorites',
-    iosIcon: heartOutline,
-    mdIcon: heartSharp
-  },
-  {
-    title: 'Archived',
-    url: '/page/Archived',
-    iosIcon: archiveOutline,
-    mdIcon: archiveSharp
-  },
-  {
-    title: 'Trash',
-    url: '/page/Trash',
-    iosIcon: trashOutline,
-    mdIcon: trashSharp
-  },
-  {
-    title: 'Spam',
-    url: '/page/Spam',
-    iosIcon: warningOutline,
-    mdIcon: warningSharp
-  }
+
+    {
+      title: 'Accueil',
+      url: '/',
+      iosIcon: home,
+      mdIcon: home
+    },
+    {
+      title: 'Liste des Top5',
+      url: '/top5',
+      iosIcon: list,
+      mdIcon: list
+    },
+    {
+      title: 'Créer un Top',
+      url: '/top5/create',
+      iosIcon: addCircleOutline,
+      mdIcon: addCircleOutline
+    },
+    {
+      title: 'RPG',
+      url: '/rpg',
+      iosIcon: gameController,
+      mdIcon: gameController
+    }
+
 ];
 
 const Menu: React.FC = () => {

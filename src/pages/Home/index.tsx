@@ -1,5 +1,5 @@
 import React from "react";
-import {IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar} from "@ionic/react";
+import {IonButton, IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar} from "@ionic/react";
 import "./index.css";
 
 const Home = () => {
@@ -17,7 +17,8 @@ const Home = () => {
             </IonHeader>
             <IonContent>
                 <h1 id="welcome">Bonjour à vous visiteur!</h1>
-                <p>Vous trouverez sur ce site une liste de Top5 ainsi que une création de personnage RPG</p>
+                <p>Vous trouverez sur ce site une liste de Top5 ainsi qu'une création de personnage RPG</p>
+                <IonButton color="primary" onClick={() => {alert('Test Ok!')}} expand="full">Test</IonButton>
             </IonContent>
         </IonPage>
 

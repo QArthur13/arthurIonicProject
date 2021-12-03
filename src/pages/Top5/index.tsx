@@ -12,18 +12,15 @@ import {
     IonTitle,
     IonToolbar, useIonViewDidEnter
 } from "@ionic/react";
-import {useTop5} from "../../hooks";
+import {useTop} from "../../hooks";
 import {list} from "ionicons/icons";
+import {RouteComponentProps} from "react-router";
 
-const Top5 = () => {
+const Top = () => {
 
-    const { top5 } = useTop5();
+    const { top } = useTop();
 
-    useIonViewDidEnter(() => {
-
-        console.log("ionViewDidEnter event fired!")
-
-    });
+    console.log(top);
 
     return(
 
@@ -38,50 +35,26 @@ const Top5 = () => {
             </IonHeader>
             <IonContent>
                 <IonList>
-                    {top5.map((list, index) => {
+                    <IonItem  >
+                        <IonLabel>
+                            <h1>{top.title}</h1>
+                                {top.items.map((item, j) => {
 
-                        return(
+                                    //return <p key={j}>{item.name}</p>
 
-                            <IonItem key={index} routerLink={`/top5/view/${list.title}`}>
-                                <IonLabel>
-                                    <h1>{list.title}</h1>
-                                    {list.items.map((item, j) => {
+                                    return (
 
-                                        //return <p key={j}>{item.name}</p>
-                                        if (item.img) {
+                                        <div key={j}>
+                                            {item.img && <IonThumbnail>
+                                                <img src={item.img}/>
+                                            </IonThumbnail>}
+                                            <p>{item.name}</p>
+                                        </div>
 
-                                            return (
-
-                                                <div key={j}>
-                                                    <IonThumbnail>
-                                                        <img src={item.img}/>
-                                                    </IonThumbnail>
-                                                    <p>{item.name}</p>
-                                                    <p>{item.number}</p>
-                                                </div>
-
-                                            )
-
-                                        } else {
-
-                                            return (
-
-                                                <div key={j}>
-                                                    <p>{item.name}</p>
-                                                    <p>{item.number}</p>
-                                                </div>
-
-                                            )
-
-                                        }
-
-                                    })}
-                                </IonLabel>
-                            </IonItem>
-
-                        )
-
-                    })}
+                                    )
+                                })}
+                        </IonLabel>
+                    </IonItem>
                 </IonList>
             </IonContent>
         </IonPage>
@@ -90,4 +63,4 @@ const Top5 = () => {
 
 };
 
-export default Top5;
+export default Top;

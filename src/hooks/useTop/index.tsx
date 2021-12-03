@@ -1,19 +1,28 @@
 import {useState, useEffect} from "react";
-import {listTop5, Top5} from "../../type";
+import {listTop, Top} from "../../type";
 import {useFirebaseDatabase} from "../index";
 import {doc, getDoc, getFirestore, setDoc} from "firebase/firestore";
 
-const useTop5 = () => {
+const useTop = () => {
 
-    const [top5, setTop5] = useState<listTop5>([]);
-    const { getTop5 } = useFirebaseDatabase();
+    const [top, setTop] = useState<listTop>({
+        title: "",
+        items: []
+    });
 
-    const setTopListDatabase  = (data: any) => {
+    const setTopListDatabase  = (data: listTop) => {
         const db = getFirestore();
-        setDoc(doc(db, "topList", "list"), data).then(() => {
-            setTop5(data)
+        setDoc(doc(db, "topList", "list"), { data }).then(() => {
+            setTop(data)
         })
-    }
+    };
+
+    /*const pushTop = (top: Top) => {
+
+        const newList = Array.from.prototype.concat(top);
+        return setTopListDatabase(newList);
+
+    }*/
 
     useEffect(() => {
             const db = getFirestore();
@@ -21,8 +30,8 @@ const useTop5 = () => {
                 .then((docSnap) => {
 
                     const data: any = docSnap.data();
-                    setTop5(data.list);
-                    console.log(data.list);
+                    setTop(data.data);
+                    //console.log(data.list)
 
                     /*if (data == "") {
 
@@ -39,8 +48,11 @@ const useTop5 = () => {
 
     }, []);
 
+    //console.log(top);
+
     return {
-        top5
+        top,
+        setTopListDatabase
     }
 
 
@@ -48,4 +60,4 @@ const useTop5 = () => {
 
 };
 
-export default useTop5;
+export default useTop;

@@ -1,18 +1,17 @@
-export type itemTop5 = {
+export type itemTop = {
 
-    id: number;
+    id?: number;
     name: string;
     img: string;
     desc: string;
-    number: number;
 
 };
 
-export type Top5 = {
+export type Top = {
 
     title: string;
-    items: itemTop5[];
+    items: itemTop[];
 
 };
 
-export type listTop5 = Top5[];
+export type listTop = Top;

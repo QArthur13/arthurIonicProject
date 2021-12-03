@@ -1,10 +1,17 @@
-import React from "react";
-import {useParams} from "react-router";
+import React, {useState} from "react";
+import {RouteComponentProps, useParams} from "react-router";
 import {IonButtons, IonHeader, IonPage, IonToolbar, IonBackButton, IonContent, IonTitle} from "@ionic/react";
+import {Top} from "../../../type";
 
-const Details = () => {
+type ViewTopProps = RouteComponentProps<{title: string}>
+
+const Details: React.FC<ViewTopProps> = ({ match }) => {
+
+    const { params: {title}} = match;
 
     //const { title } = useParams<{ title: string}>()
+
+    const [top5, setTop] = useState<Top | undefined>();
 
     return(
 

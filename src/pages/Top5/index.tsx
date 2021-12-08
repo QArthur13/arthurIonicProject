@@ -20,8 +20,6 @@ const Top = () => {
 
     const { top } = useTop();
 
-    console.log(top);
-
     return(
 
         <IonPage>
@@ -35,26 +33,21 @@ const Top = () => {
             </IonHeader>
             <IonContent>
                 <IonList>
-                    <IonItem  >
-                        <IonLabel>
-                            <h1>{top.title}</h1>
-                                {top.items.map((item, j) => {
-
-                                    //return <p key={j}>{item.name}</p>
-
-                                    return (
-
-                                        <div key={j}>
-                                            {item.img && <IonThumbnail>
-                                                <img src={item.img}/>
-                                            </IonThumbnail>}
-                                            <p>{item.name}</p>
-                                        </div>
-
-                                    )
-                                })}
-                        </IonLabel>
-                    </IonItem>
+                    <IonLabel>{top.title}</IonLabel>
+                    {top.items.map((item, i) => {
+                        return(
+                            <IonItem key={i} routerLink={`top5/${item.name}`}>
+                                <IonLabel>
+                                    <p>{item.name}</p>
+                                    {item.img && (
+                                        <IonThumbnail>
+                                            <img src={item.img}/>
+                                        </IonThumbnail>
+                                    )}
+                                </IonLabel>
+                            </IonItem>
+                        )
+                    })}
                 </IonList>
             </IonContent>
         </IonPage>

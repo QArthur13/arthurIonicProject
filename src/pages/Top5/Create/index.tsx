@@ -19,25 +19,25 @@ const Create = () => {
 
     const { top, setTopListDatabase } = useTop();
 
-    const [title, setTitle] = useState<string>(top.title);
-    const [items, setItems] = useState<itemTop[]>(top.items);
+    /*const [title, setTitle] = useState<string>(top.title);
+    const [items, setItems] = useState<itemTop[]>(top.items);*/
 
-    const modifyItem = (item: itemTop) =>
+    /*const modifyItem = (item: itemTop) =>
         setItems((_items) => {
 
             let findItem = _items.find((i) => i.id === item.id);
             if (!findItem) return _items;
             findItem = item;
             return Array.from(_items);
-        });
+        });*/
 
 
-    useEffect(() => {
+    /*useEffect(() => {
         setTitle(top.title);
         setItems(top.items)
-    }, [top])
+    }, [top])*/
 
-    return(
+    /*return(
 
         <IonPage>
             <IonHeader>
@@ -49,7 +49,7 @@ const Create = () => {
                 </IonToolbar>
             </IonHeader>
             <IonContent>
-                {/*<IonList>
+                {/!*<IonList>
                     <IonItemDivider>Saisizer les informations</IonItemDivider>
                     <IonItem>
                         <IonLabel>Titre:</IonLabel>
@@ -72,7 +72,7 @@ const Create = () => {
                             <IonInput value={item.desc} onIonChange={(e) => {item.desc = e.detail.value || ""}}></IonInput>
                         </IonItem>
                     </IonList>
-                ))}*/}
+                ))}*!/}
                 <IonGrid>
                     <IonRow>
                         <IonCol>
@@ -88,7 +88,7 @@ const Create = () => {
                                 {items.map((item) => (
                                     <IonCol key={item.id}>
                                         <IonItemDivider>
-                                            {item.id}. {/*{item.name}*/}
+                                            {item.id}. {/!*{item.name}*!/}
                                         </IonItemDivider>
                                         <IonItem>
                                             <IonLabel>Nom:</IonLabel>
@@ -119,7 +119,7 @@ const Create = () => {
             </IonContent>
         </IonPage>
 
-    )
+    )*/
 
 }
 

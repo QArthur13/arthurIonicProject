@@ -65,8 +65,8 @@ const App: React.FC = () => {
             <Route path="/" exact={true} component={Home} />
             <Route path="/rpg" exact={true} component={RPG} />
             <Route path="/top5" exact={true} component={Top5} />
-            <Route path="/top5/view/:title" exact={true} component={Details} />
-            <Route path="/top5/create" exact={true} component={Create}/>
+            <Route path="/top5/:name" exact={true} component={Details} />
+            {/*<Route path="/top5/create" exact={true} component={Create}/>*/}
           </IonRouterOutlet>
         </IonSplitPane>
       </IonReactRouter>

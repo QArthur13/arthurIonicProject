@@ -1,17 +1,25 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import {RouteComponentProps, useParams} from "react-router";
-import {IonButtons, IonHeader, IonPage, IonToolbar, IonBackButton, IonContent, IonTitle} from "@ionic/react";
-import {Top} from "../../../type";
+import {
+    IonButtons,
+    IonHeader,
+    IonPage,
+    IonToolbar,
+    IonBackButton,
+    IonContent,
+    IonTitle,
+    IonThumbnail
+} from "@ionic/react";
+import {useTop} from "../../../hooks";
 
-type ViewTopProps = RouteComponentProps<{title: string}>
+type ViewTopProps = RouteComponentProps<{name: string;}>;
 
 const Details: React.FC<ViewTopProps> = ({ match }) => {
 
-    const { params: {title}} = match;
+    const { params: {name}} = match;
+    const { top } = useTop();
 
-    //const { title } = useParams<{ title: string}>()
-
-    const [top5, setTop] = useState<Top | undefined>();
+    //console.log(top);
 
     return(
 
@@ -25,11 +33,82 @@ const Details: React.FC<ViewTopProps> = ({ match }) => {
                 </IonToolbar>
             </IonHeader>
             <IonContent>
-                <h1>Bonjour</h1>
+                {top.items.map((item, i) => {
+
+                    return(
+                        <div key={i}>
+                            { name == item.name &&(
+
+                                <div>
+                                    <h1>{item.name}</h1>
+                                    <img src={item.img}/>
+                                    <p>{item.desc}</p>
+                                </div>
+
+                            )}
+                        </div>
+                    )
+
+                })}
             </IonContent>
         </IonPage>
 
     )
+
+    /*if (!top1) {
+
+        return(
+
+            <IonPage>
+                <IonHeader>
+                    <IonToolbar>
+                        <IonButtons slot="start">
+                            <IonBackButton defaultHref="/top5"/>
+                        </IonButtons>
+                        <IonTitle>Titre</IonTitle>
+                    </IonToolbar>
+                </IonHeader>
+                <IonContent>
+                    <h1>Pas de Top :/</h1>
+                </IonContent>
+            </IonPage>
+
+        )
+
+    }
+
+    return(
+
+        <IonPage>
+            <IonHeader>
+                <IonToolbar>
+                    <IonButtons slot="start">
+                        <IonBackButton defaultHref="/top5"/>
+                    </IonButtons>
+                    <IonTitle>Titre</IonTitle>
+                </IonToolbar>
+            </IonHeader>
+            <IonContent>
+                <h1>{titleTop}</h1>
+                {items.map((item, i) => {
+
+                    return(
+                        <div key={i}>
+                            <p>{item.name}</p>
+                            {item.img && (
+                                <IonThumbnail>
+                                    <img src={item.img}/>
+                                </IonThumbnail>
+                            )}
+                            <p>{item.desc}</p>
+                        </div>
+                    )
+
+                })}
+            </IonContent>
+        </IonPage>
+
+    )*/
 
 };
 

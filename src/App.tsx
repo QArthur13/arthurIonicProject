@@ -26,6 +26,7 @@ import './theme/variables.css';
 import firebase from "firebase/compat";
 import { initializeApp } from 'firebase/app';
 import Login from "./pages/Login";
+import {SplashScreen} from "@capacitor/splash-screen";
 
 const firebaseConfig = {
   apiKey: "AIzaSyCrKQyBWexzucFS_liHi8nLnM0cQ4q1v9E",
@@ -41,6 +42,10 @@ const App: React.FC = () => {
   useEffect(() => {
 
     initializeApp(firebaseConfig);
+    SplashScreen.show({
+      showDuration: 3000,
+      autoHide: true
+    });
 
   }, []);
 

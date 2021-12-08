@@ -8,9 +8,12 @@ import {
     IonBackButton,
     IonContent,
     IonTitle,
-    IonThumbnail
+    IonThumbnail, IonButton, IonIcon
 } from "@ionic/react";
 import {useTop} from "../../../hooks";
+import {SocialSharing} from "@awesome-cordova-plugins/social-sharing";
+import {shareSocialOutline} from "ionicons/icons";
+import {Toast} from "@capacitor/toast";
 
 type ViewTopProps = RouteComponentProps<{name: string;}>;
 
@@ -21,6 +24,14 @@ const Details: React.FC<ViewTopProps> = ({ match }) => {
 
     //console.log(top);
 
+    useEffect(() => {
+
+        Toast.show({
+            text: "God Arthur!"
+        });
+
+    }, []);
+
     return(
 
         <IonPage>
@@ -28,6 +39,11 @@ const Details: React.FC<ViewTopProps> = ({ match }) => {
                 <IonToolbar>
                     <IonButtons slot="start">
                         <IonBackButton defaultHref="/top5"/>
+                    </IonButtons>
+                    <IonButtons slot="end">
+                        <IonButton onClick={() => {SocialSharing.share("Message", "Subject")}}>
+                            <IonIcon slot="icon-only" icon={shareSocialOutline}/>
+                        </IonButton>
                     </IonButtons>
                     <IonTitle>Titre</IonTitle>
                 </IonToolbar>
@@ -54,61 +70,6 @@ const Details: React.FC<ViewTopProps> = ({ match }) => {
         </IonPage>
 
     )
-
-    /*if (!top1) {
-
-        return(
-
-            <IonPage>
-                <IonHeader>
-                    <IonToolbar>
-                        <IonButtons slot="start">
-                            <IonBackButton defaultHref="/top5"/>
-                        </IonButtons>
-                        <IonTitle>Titre</IonTitle>
-                    </IonToolbar>
-                </IonHeader>
-                <IonContent>
-                    <h1>Pas de Top :/</h1>
-                </IonContent>
-            </IonPage>
-
-        )
-
-    }
-
-    return(
-
-        <IonPage>
-            <IonHeader>
-                <IonToolbar>
-                    <IonButtons slot="start">
-                        <IonBackButton defaultHref="/top5"/>
-                    </IonButtons>
-                    <IonTitle>Titre</IonTitle>
-                </IonToolbar>
-            </IonHeader>
-            <IonContent>
-                <h1>{titleTop}</h1>
-                {items.map((item, i) => {
-
-                    return(
-                        <div key={i}>
-                            <p>{item.name}</p>
-                            {item.img && (
-                                <IonThumbnail>
-                                    <img src={item.img}/>
-                                </IonThumbnail>
-                            )}
-                            <p>{item.desc}</p>
-                        </div>
-                    )
-
-                })}
-            </IonContent>
-        </IonPage>
-
-    )*/
 
 };
 

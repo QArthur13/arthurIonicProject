@@ -1,8 +1,14 @@
-import React from "react";
+import React, {useEffect} from "react";
 import {IonButton, IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar} from "@ionic/react";
 import "./index.css";
+import {StatusBar} from "@awesome-cordova-plugins/status-bar";
 
 const Home = () => {
+
+    useEffect(() => {
+        StatusBar.overlaysWebView(false);
+        StatusBar.backgroundColorByName("purple");
+    }, []);
 
     return (
 

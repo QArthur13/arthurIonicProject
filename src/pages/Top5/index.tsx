@@ -1,10 +1,10 @@
-import React from "react";
+import React, {useEffect} from "react";
 import "./index.css";
 import {
-    IonAvatar,
+    IonAvatar, IonButton,
     IonButtons, IonCard, IonCardContent, IonCardHeader,
     IonContent,
-    IonHeader, IonImg, IonItem, IonLabel,
+    IonHeader, IonIcon, IonImg, IonItem, IonLabel,
     IonList,
     IonListHeader,
     IonMenuButton,
@@ -13,12 +13,22 @@ import {
     IonToolbar, useIonViewDidEnter
 } from "@ionic/react";
 import {useTop} from "../../hooks";
-import {list} from "ionicons/icons";
+import {list, shareSocialOutline} from "ionicons/icons";
 import {RouteComponentProps} from "react-router";
+import {SocialSharing} from "@awesome-cordova-plugins/social-sharing";
+import {Toast} from "@capacitor/toast";
 
 const Top = () => {
 
     const { top } = useTop();
+
+    useEffect(() => {
+
+        Toast.show({
+            text: "Salut!"
+        });
+
+    }, []);
 
     return(
 

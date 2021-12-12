@@ -33,7 +33,7 @@ const Manga = () => {
                     <IonButtons slot="start">
                         <IonMenuButton />
                     </IonButtons>
-                    <IonTitle>Mon Top manga/anime</IonTitle>
+                    <IonTitle>Mon Top manga</IonTitle>
                 </IonToolbar>
             </IonHeader>
             <IonContent>

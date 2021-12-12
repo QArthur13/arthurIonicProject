@@ -38,7 +38,7 @@ const Top = () => {
                     <IonButtons slot="start">
                         <IonMenuButton />
                     </IonButtons>
-                    <IonTitle>Les Top5</IonTitle>
+                    <IonTitle>Mon Top manga/anime</IonTitle>
                 </IonToolbar>
             </IonHeader>
             <IonContent>
@@ -46,7 +46,7 @@ const Top = () => {
                     <IonLabel>{top.title}</IonLabel>
                     {top.items.map((item, i) => {
                         return(
-                            <IonItem key={i} routerLink={`top5/${item.name}`}>
+                            <IonItem key={i} routerLink={`topManga-Anime/${item.name}`}>
                                 <IonLabel>
                                     <p>{item.name}</p>
                                     {item.img && (

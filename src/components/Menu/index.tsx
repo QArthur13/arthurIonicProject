@@ -16,7 +16,7 @@ import { useLocation } from 'react-router-dom';
 import {
   addCircle, addCircleOutline,
   archiveOutline,
-  archiveSharp,
+  archiveSharp, book,
   bookmarkOutline, gameController,
   heartOutline,
   heartSharp, home,
@@ -26,7 +26,7 @@ import {
   paperPlaneOutline,
   paperPlaneSharp,
   trashOutline,
-  trashSharp,
+  trashSharp, tv,
   warningOutline,
   warningSharp
 } from 'ionicons/icons';
@@ -42,20 +42,20 @@ const appPages: AppPage[] = [
       mdIcon: home
     },
     {
-      title: 'Liste des Top5',
-      url: '/top5',
-      iosIcon: list,
-      mdIcon: list
+      title: 'Top de mes Manga',
+      url: '/Manga',
+      iosIcon: book,
+      mdIcon: book
     },
     {
-      title: 'Créer un Top',
-      url: '/top5/create',
-      iosIcon: addCircleOutline,
-      mdIcon: addCircleOutline
+      title: 'Top de mes Anime',
+      url: '/Anime',
+      iosIcon: tv,
+      mdIcon: tv
     },
     {
-      title: 'RPG',
-      url: '/rpg',
+      title: 'Top de mes Jeux-vidéo',
+      url: '/videoGame',
       iosIcon: gameController,
       mdIcon: gameController
     }

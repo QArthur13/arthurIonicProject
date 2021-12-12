@@ -1,6 +1,10 @@
 export { default as Home } from "./Home";
-export { default as RPG } from "./RPG";
-export { default as Top5 } from "./Top5";
-export { default as Details } from  "./Top5/Details";
-export { default as Create } from  "./Top5/Create";
+export { default as VideoGame } from "./VideoGame";
+export { default as DetailVideoGame } from "./VideoGame/DetailVideoGame";
+export { default as Top } from "./Top";
+export { default as Details } from  "./Top/Details";
+export { default as Manga } from "./Manga";
+export { default as DetailManga } from "./Manga/DetailManga";
+export { default as Anime } from "./Anime";
+export { default as DetailAnime } from "./Anime/DetailAnime";
 export { default as AppUrlListener } from  "./AppUrlListener";

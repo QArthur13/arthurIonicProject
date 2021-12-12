@@ -3,7 +3,18 @@ import { IonApp, IonRouterOutlet, IonSplitPane } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 import { Redirect, Route } from 'react-router-dom';
 import Menu from './components/Menu';
-import {AppUrlListener, Create, Details, Home, RPG, Top5} from "./pages";
+import {
+  Anime,
+  AppUrlListener,
+  DetailAnime,
+  DetailManga,
+  Details,
+  DetailVideoGame,
+  Home,
+  Manga,
+  Top,
+  VideoGame
+} from "./pages";
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -25,7 +36,6 @@ import '@ionic/react/css/display.css';
 import './theme/variables.css';
 import firebase from "firebase/compat";
 import { initializeApp } from 'firebase/app';
-import Login from "./pages/Login";
 import {SplashScreen} from "@capacitor/splash-screen";
 
 const firebaseConfig = {
@@ -49,17 +59,6 @@ const App: React.FC = () => {
 
   }, []);
 
-  /*const { user, userConnect } = useFirebaseLogin();
-
-  useEffect(() => {
-
-    initializeApp(firebaseConfig);
-    userConnect();
-
-  }, [userConnect]);
-
-  console.log(user);*/
-
   return (
     <IonApp>
       <IonReactRouter>
@@ -68,10 +67,14 @@ const App: React.FC = () => {
           <AppUrlListener></AppUrlListener>
           <IonRouterOutlet id="main">
             <Route path="/" exact={true} component={Home} />
-            <Route path="/rpg" exact={true} component={RPG} />
-            <Route path="/top5" exact={true} component={Top5} />
-            <Route path="/top5/:name" exact={true} component={Details} />
-            {/*<Route path="/top5/create" exact={true} component={Create}/>*/}
+            {/*<Route path="/topManga-Anime" exact={true} component={Top} />
+            <Route path="/topManga-Anime/:name" exact={true} component={Details} />*/}
+            <Route path="/Manga" exact={true} component={Manga} />
+            <Route path="/Manga/:name" exact={true} component={DetailManga} />
+            <Route path="/Anime" exact={true} component={Anime} />
+            <Route path="/Anime/:name" exact={true} component={DetailAnime} />
+            <Route path="/videoGame" exact={true} component={VideoGame} />
+            <Route path="/videoGame/:name" exact={true} component={DetailVideoGame} />
           </IonRouterOutlet>
         </IonSplitPane>
       </IonReactRouter>

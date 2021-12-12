@@ -45,7 +45,7 @@ const Details: React.FC<ViewTopProps> = ({ match }) => {
                             <IonIcon slot="icon-only" icon={shareSocialOutline}/>
                         </IonButton>
                     </IonButtons>
-                    <IonTitle>Titre</IonTitle>
+                    <IonTitle>Titre du Top</IonTitle>
                 </IonToolbar>
             </IonHeader>
             <IonContent>

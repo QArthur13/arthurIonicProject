@@ -1,6 +1,17 @@
 import React, {useEffect} from "react";
-import {IonButton, IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar} from "@ionic/react";
+import {
+    IonButton,
+    IonButtons,
+    IonContent,
+    IonHeader,
+    IonIcon,
+    IonMenuButton,
+    IonPage,
+    IonTitle,
+    IonToolbar
+} from "@ionic/react";
 import "./index.css";
+import {happyOutline} from "ionicons/icons";
 import {StatusBar} from "@awesome-cordova-plugins/status-bar";
 
 const Home = () => {
@@ -22,9 +33,8 @@ const Home = () => {
                 </IonToolbar>
             </IonHeader>
             <IonContent>
-                <h1 id="welcome">Bonjour à vous visiteur!</h1>
-                <p>Vous trouverez sur ce site une liste de Top5 ainsi qu'une création de personnage RPG</p>
-                <IonButton color="primary" onClick={() => {alert('Test Ok!')}} expand="full">Test</IonButton>
+                <h1 id="welcome">Bonjour à vous visiteur! <IonIcon slot="icon-only" icon={happyOutline}></IonIcon></h1>
+                <p>Vous trouverez sur ce site une liste de mes manga/anime préférés ainsi que mes jeuxvidéo préférés</p>
             </IonContent>
         </IonPage>
 
